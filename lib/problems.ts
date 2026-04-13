@@ -194,9 +194,9 @@ export function getAllSlugs(): string[] {
 }
 
 export const HEAT_CONFIG: Record<HeatLevel, { label: string; emoji: string; bg: string; text: string }> = {
-  burning: { label: 'Burning', emoji: 'fire', bg: 'bg-red-100',   text: 'text-red-800'    },
-  warm:    { label: 'Warm',    emoji: 'bolt', bg: 'bg-amber-100', text: 'text-amber-800'  },
-  fresh:   { label: 'Fresh',   emoji: 'leaf', bg: 'bg-forest-50', text: 'text-forest-600' },
+  burning: { label: 'Burning', emoji: '🔥', bg: 'bg-red-100',   text: 'text-red-800'    },
+  warm:    { label: 'Warm',    emoji: '⚡', bg: 'bg-amber-100', text: 'text-amber-800'  },
+  fresh:   { label: 'Fresh',   emoji: '🌿', bg: 'bg-forest-50', text: 'text-forest-600' },
 }
 
 export const CATEGORY_EMOJI: Record<string, string> = {

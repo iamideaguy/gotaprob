@@ -203,14 +203,14 @@ export default function ProblemPage({ params }: Props) {
             {problem.questionsToAsk.length > 0 && (
               <div className="mb-8">
                 <SectionLabel>Questions Worth Asking</SectionLabel>
-                <ol className="flex flex-col gap-2">
+                <ul className="flex flex-col gap-2 list-none">
                   {problem.questionsToAsk.map((q, i) => (
                     <li key={i} className="flex gap-3 py-3 border-b border-border last:border-0 text-sm text-ink leading-relaxed">
                       <span className="font-serif font-bold text-forest-400 text-lg leading-none">{i + 1}.</span>
                       {q}
                     </li>
                   ))}
-                </ol>
+                </ul>
               </div>
             )}
 
