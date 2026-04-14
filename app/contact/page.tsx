@@ -13,7 +13,7 @@ export default function ContactPage() {
         Have a question, a tip, or want to talk about the site? We'd love to hear from you.
       </p>
       <a
-        href="mailto:hello@gotaprob.com"
+        href="mailto:iamideaguy@gmail.com"
         className="inline-block bg-forest-600 text-cream px-6 py-3 text-sm font-medium hover:bg-forest-500 transition-colors"
       >
         hello@gotaprob.com

@@ -43,14 +43,14 @@ export default function PrivacyPage() {
         <section>
           <h2 className="font-serif text-xl mb-3">Your rights</h2>
           <p className="text-muted">
-            You can unsubscribe from our newsletter at any time using the link in any email. To request deletion of any personal data we hold, contact us at <a href="mailto:hello@gotaprob.com" className="text-forest-600 underline">hello@gotaprob.com</a>.
+            You can unsubscribe from our newsletter at any time using the link in any email. To request deletion of any personal data we hold, contact us at <a href="mailto:iamideaguy@gmail.com" className="text-forest-600 underline">iamideaguy@gmail.com</a>.
           </p>
         </section>
 
         <section>
           <h2 className="font-serif text-xl mb-3">Contact</h2>
           <p className="text-muted">
-            Questions about this policy? Email <a href="mailto:hello@gotaprob.com" className="text-forest-600 underline">hello@gotaprob.com</a>.
+            Questions about this policy? Email <a href="mailto:iamideaguy@gmail.com" className="text-forest-600 underline">iamideaguy@gmail.com</a>.
           </p>
         </section>
       </div>

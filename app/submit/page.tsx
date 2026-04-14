@@ -21,10 +21,12 @@ export default function SubmitPage() {
         </ul>
       </div>
       <a
-        href="mailto:submit@gotaprob.com?subject=Problem submission"
+        href="https://tally.so/r/mKWaKA"
+        target="_blank"
+        rel="noopener noreferrer"
         className="inline-block bg-forest-600 text-cream px-6 py-3 text-sm font-medium hover:bg-forest-500 transition-colors"
       >
-        Email your submission →
+        Submit via form →
       </a>
     </div>
   )

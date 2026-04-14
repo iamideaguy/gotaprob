@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft, ArrowUpRight } from 'lucide-react'
 import { getProblemBySlug, getAllSlugs, getAllProblems, CATEGORY_EMOJI } from '@/lib/problems'
-import { formatDate, timeAgo } from '@/lib/utils'
+import { formatDate } from '@/lib/utils'
 import { HeatBadge } from '@/components/HeatBadge'
 import { ScoreCard } from '@/components/ScoreCard'
 import { ProblemCard } from '@/components/ProblemCard'
@@ -96,10 +96,6 @@ export default function ProblemPage({ params }: Props) {
 
               <div className="flex flex-wrap items-center gap-3 text-xs text-muted py-4 border-t border-b border-border">
                 <span>Added {formatDate(problem.dateAdded)}</span>
-                <span>·</span>
-                <span>{timeAgo(problem.dateAdded)}</span>
-                <span>·</span>
-                <span>{(problem.views).toLocaleString()} views</span>
                 <button className="ml-auto text-xs font-medium text-ink hover:text-forest-600 transition-colors">
                   Share ↗
                 </button>

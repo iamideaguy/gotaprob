@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
-import { getFeaturedProblem, getRecentProblems, getTopProblems, getAllCategories, getProblemCount, CATEGORY_EMOJI } from '@/lib/problems'
+import { getFeaturedProblem, getRecentProblems, getTopProblems, getAllCategories, CATEGORY_EMOJI } from '@/lib/problems'
 import { FeaturedCard, ProblemCard } from '@/components/ProblemCard'
 import { Sidebar } from '@/components/Sidebar'
 import { NewsletterSection } from '@/components/NewsletterSection'
 import { AdUnit } from '@/components/AdUnit'
+import { TickerBar } from '@/components/TickerBar'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -16,8 +17,6 @@ export default function HomePage() {
   const recent    = getRecentProblems(6)
   const top       = getTopProblems(3)
   const cats      = getAllCategories()
-  const count     = getProblemCount()
-
   const feedProblems = recent.filter(p => p.slug !== featured?.slug)
 
   return (
@@ -27,7 +26,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-6 py-14 md:py-20">
           <div className="max-w-3xl">
             <p className="mb-4 text-2xs font-medium uppercase tracking-widest text-muted">
-              A curated collection · {count} problems and counting
+              A curated collection · Free forever
             </p>
             <h1 className="font-serif text-4xl leading-tight text-ink md:text-6xl md:leading-tight">
               Real problems,{' '}
@@ -52,6 +51,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <TickerBar />
 
       {/* ── Main layout ── */}
       <div className="mx-auto max-w-6xl px-6">

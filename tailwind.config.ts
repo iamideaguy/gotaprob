@@ -37,6 +37,15 @@ const config: Config = {
       fontSize: {
         '2xs': ['0.625rem', { lineHeight: '1rem' }],
       },
+      borderRadius: {
+        DEFAULT: '4px',
+        sm: '2px',
+        md: '4px',
+        lg: '6px',
+        xl: '8px',
+        full: '9999px',
+        none: '0',
+      },
     },
   },
   plugins: [],

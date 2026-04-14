@@ -50,7 +50,7 @@ export default function TermsPage() {
         <section>
           <h2 className="font-serif text-xl mb-3">Contact</h2>
           <p className="text-muted">
-            Questions? Email <a href="mailto:hello@gotaprob.com" className="text-forest-600 underline">hello@gotaprob.com</a>.
+            Questions? Email <a href="mailto:iamideaguy@gmail.com" className="text-forest-600 underline">iamideaguy@gmail.com</a>.
           </p>
         </section>
       </div>

@@ -114,7 +114,7 @@ export default function BrowsePage({
               <a href="/browse" className="text-sm text-forest-600 hover:underline">Clear filters</a>
             </div>
           ) : (
-            <div className="border border-border bg-white">
+            <div className="border border-border bg-white overflow-hidden">
               {problems.map((p, i) => (
                 <div key={p.slug}>
                   <ProblemListRow problem={p} />
