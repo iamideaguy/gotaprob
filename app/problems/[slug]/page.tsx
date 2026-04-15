@@ -215,22 +215,6 @@ export default function ProblemPage({ params }: Props) {
               ⚠️ gotaprob surfaces problems worth investigating — not businesses ready to build. We don't validate ideas or guarantee opportunity. This is a starting point. Do your own research.
             </div>
 
-            {/* Tags */}
-            <div className="mb-8">
-              <p className="text-2xs font-semibold uppercase tracking-widest text-muted mb-3">Tags</p>
-              <div className="flex flex-wrap gap-2">
-                {problem.tags.map(tag => (
-                  <Link
-                    key={tag}
-                    href={`/categories/${tag.toLowerCase().replace(/ /g, '-')}`}
-                    className="text-xs font-medium text-forest-600 border border-forest-200 bg-forest-50 px-3 py-1 hover:bg-forest-100 transition-colors"
-                  >
-                    {tag}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
             {/* Related */}
             {related.length > 0 && (
               <div className="border-t border-border pt-8">
@@ -244,6 +228,36 @@ export default function ProblemPage({ params }: Props) {
 
           {/* ── Sidebar ── */}
           <aside className="lg:sticky lg:top-24 lg:self-start flex flex-col gap-6">
+
+            {/* Table of contents */}
+            {(() => {
+              const toc = [
+                { label: 'The Problem', show: true },
+                { label: 'Proof Signals', show: problem.proofSignals.length > 0 },
+                { label: 'Who Has This Problem', show: problem.whoHasIt.length > 0 },
+                { label: 'Why Nothing Works', show: problem.whyNothingWorks.length > 0 },
+                { label: 'Go Research This Yourself', show: problem.researchLinks.length > 0 },
+                { label: 'Questions Worth Asking', show: problem.questionsToAsk.length > 0 },
+              ].filter(t => t.show)
+              return (
+                <div className="border border-border bg-white p-5">
+                  <p className="text-2xs font-semibold uppercase tracking-widest text-muted mb-3">On This Page</p>
+                  <ul className="flex flex-col">
+                    {toc.map(({ label }) => (
+                      <li key={label}>
+                        <a
+                          href={`#${label.toLowerCase().replace(/ /g, '-')}`}
+                          className="block py-2 border-b border-border last:border-0 text-sm text-ink hover:text-forest-600 transition-colors"
+                        >
+                          {label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )
+            })()}
+
             {/* Score card — the main widget */}
             {problem.scoreCard && (
               <div>
@@ -282,8 +296,9 @@ export default function ProblemPage({ params }: Props) {
 }
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
+  const id = typeof children === 'string' ? children.toLowerCase().replace(/ /g, '-') : undefined
   return (
-    <div className="inline-block bg-ink text-cream text-2xs font-semibold uppercase tracking-widest px-3 py-1.5 mb-4">
+    <div id={id} className="inline-block bg-ink text-cream text-2xs font-semibold uppercase tracking-widest px-3 py-1.5 mb-4 scroll-mt-24">
       {children}
     </div>
   )

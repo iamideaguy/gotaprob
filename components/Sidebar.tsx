@@ -16,7 +16,7 @@ export function Sidebar() {
       <AdUnit size="rectangle" slot={process.env.NEXT_PUBLIC_AD_SLOT_SIDEBAR_1} />
 
       {/* Top scored */}
-      <div className="border border-border bg-white p-5">
+      <div className="border border-border bg-white p-5 rounded">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-2xs font-semibold uppercase tracking-widest text-muted">Top Scored</h3>
           <Link href="/browse?sort=top" className="inline-flex items-center gap-0.5 text-xs text-forest-600 hover:underline">
@@ -29,7 +29,7 @@ export function Sidebar() {
       </div>
 
       {/* Newsletter */}
-      <div className="border border-border bg-forest-600 p-5 text-cream">
+      <div className="border border-border bg-forest-600 p-5 text-cream rounded">
         <p className="text-2xs font-medium uppercase tracking-widest text-cream-200 mb-2">Stay curious</p>
         <h3 className="font-serif text-xl mb-2">One problem,<br />every Tuesday.</h3>
         <p className="text-sm text-cream-200 leading-relaxed mb-4">
@@ -54,7 +54,7 @@ export function Sidebar() {
       </div>
 
       {/* Most recent */}
-      <div className="border border-border bg-white p-5">
+      <div className="border border-border bg-white p-5 rounded">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-2xs font-semibold uppercase tracking-widest text-muted">Most Recent</h3>
           <Link href="/browse?sort=recent" className="inline-flex items-center gap-0.5 text-xs text-forest-600 hover:underline">
@@ -67,7 +67,7 @@ export function Sidebar() {
       </div>
 
       {/* Categories */}
-      <div className="border border-border bg-white p-5">
+      <div className="border border-border bg-white p-5 rounded">
         <h3 className="text-2xs font-semibold uppercase tracking-widest text-muted mb-4">Browse by Category</h3>
         <ul className="flex flex-col">
           {categories.map(({ name, count }) => (

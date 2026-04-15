@@ -42,7 +42,7 @@ export function Header({ problemCount }: { problemCount: number }) {
             Submit a problem
           </Link>
           <Link href="/browse"
-            className="bg-forest-600 px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-forest-500">
+            className="bg-forest-600 px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-forest-500 rounded">
             Browse all →
           </Link>
         </div>
@@ -63,7 +63,7 @@ export function Header({ problemCount }: { problemCount: number }) {
               </Link>
             ))}
             <Link href="/browse"
-              className="mt-2 block bg-forest-600 px-4 py-2.5 text-center text-sm font-medium text-cream">
+              className="mt-2 block bg-forest-600 px-4 py-2.5 text-center text-sm font-medium text-cream rounded">
               Browse all problems →
             </Link>
           </div>

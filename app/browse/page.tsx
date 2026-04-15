@@ -55,7 +55,7 @@ export default function BrowsePage({
                     sort === s
                       ? 'bg-ink text-cream border-ink'
                       : 'bg-white text-muted border-border hover:border-ink hover:text-ink'
-                  }`}>
+                  } rounded-sm`}>
                   {s === 'top' ? 'Top scored' : 'Most recent'}
                 </a>
               ))}
@@ -71,7 +71,7 @@ export default function BrowsePage({
                   heat === f.value
                     ? 'bg-forest-600 text-cream border-forest-600'
                     : 'bg-white text-muted border-border hover:border-forest-400 hover:text-ink'
-                }`}>
+                } rounded-sm`}>
                 {f.label}
               </a>
             ))}
@@ -94,7 +94,7 @@ export default function BrowsePage({
                   category === name
                     ? 'bg-forest-600 text-cream border-forest-600'
                     : 'bg-white text-muted border-border hover:border-forest-400 hover:text-ink'
-                }`}>
+                } rounded-sm`}>
                 {name}
               </a>
             ))}

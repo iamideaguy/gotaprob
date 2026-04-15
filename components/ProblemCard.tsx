@@ -9,7 +9,7 @@ export function FeaturedCard({ problem }: { problem: ProblemMeta }) {
   return (
     <Link
       href={`/problems/${problem.slug}`}
-      className="group block border border-border bg-white hover:bg-cream-100 transition-colors p-8 md:p-10"
+      className="group block border border-border bg-white hover:bg-cream-100 transition-colors p-8 md:p-10 rounded"
     >
       <div className="flex items-center gap-3 mb-4">
         <span className="text-2xs font-semibold uppercase tracking-widest text-forest-600">
@@ -46,7 +46,7 @@ export function ProblemCard({ problem, showScore = false }: { problem: ProblemMe
   return (
     <Link
       href={`/problems/${problem.slug}`}
-      className="group flex flex-col border border-border bg-white hover:bg-cream-100 transition-colors p-6"
+      className="group flex flex-col border border-border bg-white hover:bg-cream-100 transition-colors p-6 rounded"
     >
       <div className="flex items-center justify-between mb-3">
         <span className="text-2xs font-semibold uppercase tracking-wider text-forest-600">
