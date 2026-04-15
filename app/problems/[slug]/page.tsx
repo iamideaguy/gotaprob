@@ -35,33 +35,42 @@ export default function ProblemPage({ params }: Props) {
     .filter(p => p.slug !== problem.slug && p.categories.some(c => problem.categories.includes(c)))
     .slice(0, 3)
 
+  const toc = [
+    { label: 'The Problem', show: true },
+    { label: 'Proof Signals', show: problem.proofSignals.length > 0 },
+    { label: 'Who Has This Problem', show: problem.whoHasIt.length > 0 },
+    { label: 'Why Nothing Works', show: problem.whyNothingWorks.length > 0 },
+    { label: 'Go Research This Yourself', show: problem.researchLinks.length > 0 },
+    { label: 'Questions Worth Asking', show: problem.questionsToAsk.length > 0 },
+  ].filter(t => t.show)
+
   return (
     <>
       {/* Breadcrumb */}
       <div className="border-b border-border bg-cream-200">
-        <div className="mx-auto max-w-6xl px-6 py-2.5 flex items-center gap-2 text-xs text-muted">
-          <Link href="/" className="hover:text-ink transition-colors">Home</Link>
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-2.5 flex items-center gap-2 text-xs text-muted overflow-hidden">
+          <Link href="/" className="hover:text-ink transition-colors shrink-0">Home</Link>
           <span>/</span>
           {problem.categories[0] && (
             <>
               <Link
                 href={`/categories/${problem.categories[0].toLowerCase().replace(/ /g, '-')}`}
-                className="hover:text-ink transition-colors"
+                className="hover:text-ink transition-colors shrink-0"
               >
                 {problem.categories[0]}
               </Link>
               <span>/</span>
             </>
           )}
-          <span className="text-ink truncate max-w-[300px]">{problem.title}</span>
+          <span className="text-ink truncate">{problem.title}</span>
         </div>
       </div>
 
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="grid grid-cols-1 gap-12 py-12 lg:grid-cols-[1fr_320px]">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="grid grid-cols-1 gap-8 lg:gap-12 py-8 lg:py-12 lg:grid-cols-[1fr_300px]">
 
           {/* ── Article ── */}
-          <article>
+          <article className="min-w-0">
 
             {/* Back link */}
             <Link
@@ -73,24 +82,24 @@ export default function ProblemPage({ params }: Props) {
 
             {/* Header */}
             <div className="mb-8">
-              <div className="flex flex-wrap items-center gap-2.5 mb-4">
+              <div className="flex flex-wrap items-center gap-2 mb-4">
                 <HeatBadge heat={problem.heat} />
                 {problem.categories.map(cat => (
                   <Link
                     key={cat}
                     href={`/categories/${cat.toLowerCase().replace(/ /g, '-')}`}
-                    className="text-2xs font-semibold uppercase tracking-wider text-forest-600 hover:underline"
+                    className="text-2xs font-semibold uppercase tracking-wider text-forest-600 hover:underline rounded-sm px-2 py-0.5 bg-forest-50 border border-forest-200"
                   >
                     {CATEGORY_EMOJI[cat] ?? ''} {cat}
                   </Link>
                 ))}
               </div>
 
-              <h1 className="font-serif text-3xl md:text-4xl leading-tight text-ink mb-5">
+              <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl leading-tight text-ink mb-5">
                 {problem.title}
               </h1>
 
-              <p className="text-lg font-light leading-relaxed text-muted border-l-2 border-forest-300 pl-5 mb-6">
+              <p className="text-base sm:text-lg font-light leading-relaxed text-muted border-l-2 border-forest-300 pl-4 mb-6">
                 {problem.standfirst}
               </p>
 
@@ -104,13 +113,33 @@ export default function ProblemPage({ params }: Props) {
 
             {/* Stats */}
             {problem.stats.length > 0 && (
-              <div className="grid grid-cols-3 gap-px bg-border border border-border mb-8">
+              <div className="grid grid-cols-3 gap-px bg-border border border-border rounded mb-8 overflow-hidden">
                 {problem.stats.map((s, i) => (
-                  <div key={i} className="bg-white p-5 text-center">
-                    <div className="font-serif text-3xl font-bold text-forest-600 leading-none mb-1">{s.number}</div>
+                  <div key={i} className="bg-white p-3 sm:p-5 text-center">
+                    <div className="font-serif text-xl sm:text-3xl font-bold text-forest-600 leading-none mb-1">{s.number}</div>
                     <div className="text-2xs uppercase tracking-wider text-muted leading-tight">{s.label}</div>
                   </div>
                 ))}
+              </div>
+            )}
+
+            {/* Table of contents — inline, before the content */}
+            {toc.length > 1 && (
+              <div className="border border-border bg-cream-100 rounded p-4 mb-8">
+                <p className="text-2xs font-semibold uppercase tracking-widest text-muted mb-3">On This Page</p>
+                <ol className="flex flex-col gap-1 list-none">
+                  {toc.map(({ label }, i) => (
+                    <li key={label}>
+                      <a
+                        href={`#${label.toLowerCase().replace(/ /g, '-')}`}
+                        className="flex items-center gap-2 text-sm text-ink hover:text-forest-600 transition-colors py-1"
+                      >
+                        <span className="text-2xs text-muted font-mono w-4 shrink-0">{i + 1}.</span>
+                        {label}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
               </div>
             )}
 
@@ -124,11 +153,11 @@ export default function ProblemPage({ params }: Props) {
             {problem.proofSignals.length > 0 && (
               <div className="mb-8">
                 <SectionLabel>Proof Signals</SectionLabel>
-                <div className="border border-border border-l-4 border-l-forest-400 bg-white divide-y divide-border">
+                <div className="border border-border border-l-4 border-l-forest-400 bg-white divide-y divide-border rounded overflow-hidden">
                   {problem.proofSignals.map((s, i) => (
                     <div key={i} className="flex gap-3 p-4 text-sm">
                       <span className="text-base flex-shrink-0">🗣️</span>
-                      <div className="text-ink leading-relaxed">
+                      <div className="text-ink leading-relaxed min-w-0">
                         <strong className="font-semibold">{s.platform}</strong> — {s.detail}
                       </div>
                     </div>
@@ -146,7 +175,7 @@ export default function ProblemPage({ params }: Props) {
                 <SectionLabel>Who Has This Problem</SectionLabel>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {problem.whoHasIt.map((w, i) => (
-                    <div key={i} className="border border-border bg-white p-4">
+                    <div key={i} className="border border-border bg-white p-4 rounded">
                       <p className="text-2xs font-semibold uppercase tracking-wider text-muted mb-1.5">{w.segment}</p>
                       <p className="text-sm text-ink leading-relaxed">{w.description}</p>
                     </div>
@@ -161,8 +190,8 @@ export default function ProblemPage({ params }: Props) {
                 <SectionLabel>Why Nothing Works</SectionLabel>
                 <div className="flex flex-col gap-2">
                   {problem.whyNothingWorks.map((w, i) => (
-                    <div key={i} className="flex gap-4 bg-white border border-border p-4">
-                      <span className="font-semibold text-sm text-forest-600 min-w-[120px] flex-shrink-0">{w.tool}</span>
+                    <div key={i} className="bg-white border border-border rounded p-4">
+                      <p className="font-semibold text-sm text-forest-600 mb-1.5">{w.tool}</p>
                       <p className="text-sm text-ink leading-relaxed">{w.reason}</p>
                     </div>
                   ))}
@@ -176,16 +205,16 @@ export default function ProblemPage({ params }: Props) {
                 <SectionLabel>Go Research This Yourself</SectionLabel>
                 <ul className="flex flex-col gap-2">
                   {problem.researchLinks.map((r, i) => (
-                    <li key={i} className="flex gap-3 bg-white border border-border p-4">
+                    <li key={i} className="flex gap-3 bg-white border border-border rounded p-4 min-w-0">
                       <span className="text-lg flex-shrink-0">🔍</span>
-                      <div>
-                        <div className="text-sm font-medium text-ink mb-0.5">
+                      <div className="min-w-0">
+                        <div className="text-sm font-medium text-ink mb-0.5 flex flex-wrap items-center gap-1">
                           {r.url ? (
                             <a href={r.url} target="_blank" rel="noopener noreferrer" className="text-forest-600 hover:underline inline-flex items-center gap-1">
                               {r.platform} <ArrowUpRight className="h-3 w-3" />
                             </a>
                           ) : r.platform}
-                          <span className="font-normal text-muted text-xs ml-2">search: "{r.searchQuery}"</span>
+                          <span className="font-normal text-muted text-xs">search: "{r.searchQuery}"</span>
                         </div>
                         <p className="text-xs text-muted leading-relaxed">{r.detail}</p>
                       </div>
@@ -199,11 +228,11 @@ export default function ProblemPage({ params }: Props) {
             {problem.questionsToAsk.length > 0 && (
               <div className="mb-8">
                 <SectionLabel>Questions Worth Asking</SectionLabel>
-                <ul className="flex flex-col gap-2 list-none">
+                <ul className="flex flex-col list-none">
                   {problem.questionsToAsk.map((q, i) => (
                     <li key={i} className="flex gap-3 py-3 border-b border-border last:border-0 text-sm text-ink leading-relaxed">
-                      <span className="font-serif font-bold text-forest-400 text-lg leading-none">{i + 1}.</span>
-                      {q}
+                      <span className="font-serif font-bold text-forest-400 text-lg leading-none shrink-0">{i + 1}.</span>
+                      <span>{q}</span>
                     </li>
                   ))}
                 </ul>
@@ -211,7 +240,7 @@ export default function ProblemPage({ params }: Props) {
             )}
 
             {/* Disclaimer */}
-            <div className="bg-cream-200 border border-border p-4 mb-8 text-sm text-muted italic leading-relaxed">
+            <div className="bg-cream-200 border border-border rounded p-4 mb-8 text-sm text-muted italic leading-relaxed">
               ⚠️ gotaprob surfaces problems worth investigating — not businesses ready to build. We don't validate ideas or guarantee opportunity. This is a starting point. Do your own research.
             </div>
 
@@ -219,7 +248,7 @@ export default function ProblemPage({ params }: Props) {
             {related.length > 0 && (
               <div className="border-t border-border pt-8">
                 <p className="text-2xs font-semibold uppercase tracking-widest text-muted mb-4">Related Problems</p>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-border border border-border">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {related.map(p => <ProblemCard key={p.slug} problem={p} />)}
                 </div>
               </div>
@@ -229,36 +258,7 @@ export default function ProblemPage({ params }: Props) {
           {/* ── Sidebar ── */}
           <aside className="lg:sticky lg:top-24 lg:self-start flex flex-col gap-6">
 
-            {/* Table of contents */}
-            {(() => {
-              const toc = [
-                { label: 'The Problem', show: true },
-                { label: 'Proof Signals', show: problem.proofSignals.length > 0 },
-                { label: 'Who Has This Problem', show: problem.whoHasIt.length > 0 },
-                { label: 'Why Nothing Works', show: problem.whyNothingWorks.length > 0 },
-                { label: 'Go Research This Yourself', show: problem.researchLinks.length > 0 },
-                { label: 'Questions Worth Asking', show: problem.questionsToAsk.length > 0 },
-              ].filter(t => t.show)
-              return (
-                <div className="border border-border bg-white p-5">
-                  <p className="text-2xs font-semibold uppercase tracking-widest text-muted mb-3">On This Page</p>
-                  <ul className="flex flex-col">
-                    {toc.map(({ label }) => (
-                      <li key={label}>
-                        <a
-                          href={`#${label.toLowerCase().replace(/ /g, '-')}`}
-                          className="block py-2 border-b border-border last:border-0 text-sm text-ink hover:text-forest-600 transition-colors"
-                        >
-                          {label}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )
-            })()}
-
-            {/* Score card — the main widget */}
+            {/* Score card */}
             {problem.scoreCard && (
               <div>
                 <p className="text-2xs font-semibold uppercase tracking-widest text-muted mb-3">Problem Score</p>
@@ -270,14 +270,14 @@ export default function ProblemPage({ params }: Props) {
             <AdUnit size="rectangle" slot={process.env.NEXT_PUBLIC_AD_SLOT_SIDEBAR_1} />
 
             {/* Newsletter */}
-            <div className="border border-border bg-forest-600 p-5 text-cream">
+            <div className="border border-border bg-forest-600 rounded p-5 text-cream">
               <p className="text-2xs font-medium uppercase tracking-widest text-cream-200 mb-2">Weekly digest</p>
               <h3 className="font-serif text-xl mb-2">One problem,<br />every Tuesday.</h3>
               <p className="text-sm text-cream-200 leading-relaxed mb-4">New problems straight to your inbox. Free forever.</p>
               <form action="https://app.beehiiv.com/subscribe" method="post" target="_blank" className="flex flex-col gap-2">
                 <input type="email" name="email" placeholder="your@email.com" required
-                  className="w-full bg-forest-500 border border-forest-400 px-3 py-2.5 text-sm text-cream placeholder-cream-200/50 outline-none" />
-                <button type="submit" className="w-full bg-cream text-forest-600 py-2.5 text-sm font-semibold hover:bg-cream-200 transition-colors">
+                  className="w-full bg-forest-500 border border-forest-400 rounded px-3 py-2.5 text-sm text-cream placeholder-cream-200/50 outline-none focus:border-cream-200" />
+                <button type="submit" className="w-full bg-cream text-forest-600 rounded py-2.5 text-sm font-semibold hover:bg-cream-200 transition-colors">
                   Subscribe free
                 </button>
               </form>
@@ -298,7 +298,7 @@ export default function ProblemPage({ params }: Props) {
 function SectionLabel({ children }: { children: React.ReactNode }) {
   const id = typeof children === 'string' ? children.toLowerCase().replace(/ /g, '-') : undefined
   return (
-    <div id={id} className="inline-block bg-ink text-cream text-2xs font-semibold uppercase tracking-widest px-3 py-1.5 mb-4 scroll-mt-24">
+    <div id={id} className="inline-block bg-ink text-cream text-2xs font-semibold uppercase tracking-widest px-3 py-1.5 mb-4 rounded-sm scroll-mt-24">
       {children}
     </div>
   )

@@ -112,7 +112,11 @@ export function getProblemBySlug(slug: string): Problem | null {
     whyNothingWorks: data.whyNothingWorks ?? [],
     researchLinks:   data.researchLinks   ?? [],
     questionsToAsk:  data.questionsToAsk  ?? [],
-    content,
+    content: content
+      .split(/\n\n+/)
+      .filter(p => p.trim())
+      .map(p => `<p>${p.trim().replace(/\n/g, ' ')}</p>`)
+      .join('\n'),
   }
 }
 

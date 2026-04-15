@@ -32,7 +32,7 @@ export function ScoreBadgeRow({ badges }: { badges: ScoreBadges }) {
       {items.map(({ label, value }) => {
         const s = badgeStyle(value)
         return (
-          <div key={label} className={`border p-3 text-center ${s.border}`}>
+          <div key={label} className={`border p-3 text-center rounded ${s.border}`}>
             <div className={`font-serif text-2xl font-bold leading-none mb-0.5 ${s.text}`}>{value}</div>
             <div className="text-2xs font-semibold text-ink">{label}</div>
             <div className={`text-2xs ${s.text}`}>{s.sub}</div>
@@ -48,7 +48,7 @@ export function ScoreCard({ scoreCard }: { scoreCard: ScoreCardType }) {
   const tabs = ['score', 'breakdown', 'resources'] as const
 
   return (
-    <div className="border border-border bg-cream-50 overflow-hidden">
+    <div className="border border-border bg-cream-50 overflow-hidden rounded">
       <div className="flex border-b border-border">
         {tabs.map(t => (
           <button
@@ -106,7 +106,7 @@ export function ScoreCard({ scoreCard }: { scoreCard: ScoreCardType }) {
             <p className="text-xs text-muted text-center py-4">No resources added yet.</p>
           ) : scoreCard.resources.map((r, i) => (
             <a key={i} href={r.url} target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-2.5 p-2.5 border border-border bg-white hover:bg-cream-100 transition-colors group">
+              className="flex items-center gap-2.5 p-2.5 border border-border bg-white hover:bg-cream-100 transition-colors group rounded">
               <span className="font-mono text-2xs text-muted w-8">{TYPE_ICON[r.type] ?? '?'}</span>
               <span className="flex-1 text-xs text-ink group-hover:text-forest-600 line-clamp-1">{r.label}</span>
               <ExternalLink className="h-3 w-3 text-muted flex-shrink-0" />

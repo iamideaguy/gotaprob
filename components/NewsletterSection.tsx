@@ -29,11 +29,11 @@ export function NewsletterSection() {
                 onChange={e => setEmail(e.target.value)}
                 placeholder="your@email.com"
                 required
-                className="flex-1 border-b-2 border-cream-200/40 bg-transparent px-0 py-3 text-cream placeholder-cream-200/50 focus:border-cream focus:outline-none"
+                className="flex-1 border border-cream-200/40 bg-forest-500 rounded px-3 py-3 text-cream placeholder-cream-200/50 focus:border-cream focus:outline-none"
               />
               <button
                 type="submit"
-                className="group inline-flex items-center gap-2 bg-cream text-forest-600 px-6 py-3 text-sm font-semibold hover:bg-cream-200 transition-colors"
+                className="group inline-flex items-center gap-2 bg-cream text-forest-600 rounded px-6 py-3 text-sm font-semibold hover:bg-cream-200 transition-colors"
               >
                 Subscribe
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
