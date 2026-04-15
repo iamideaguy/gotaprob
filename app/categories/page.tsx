@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { getAllCategories, CATEGORY_EMOJI, CATEGORY_TREE } from '@/lib/problems'
+import { getAllCategories, CATEGORY_EMOJI, CATEGORY_TREE, getProblemCount } from '@/lib/problems'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = { title: 'Categories — gotaprob' }
@@ -7,6 +7,7 @@ export const metadata: Metadata = { title: 'Categories — gotaprob' }
 export default function CategoriesPage() {
   const cats = getAllCategories()
   const catMap = Object.fromEntries(cats.map(c => [c.name, c.count]))
+  const totalProblems = getProblemCount()
 
   return (
     <div className="mx-auto max-w-5xl px-6 py-12">
@@ -14,7 +15,7 @@ export default function CategoriesPage() {
         <p className="text-2xs font-medium uppercase tracking-widest text-muted mb-2">Browse by topic</p>
         <h1 className="font-serif text-3xl text-ink">All Categories</h1>
         <p className="mt-2 text-muted">
-          {cats.length} categories · {cats.reduce((sum, c) => sum + c.count, 0)} problems total
+          {cats.length} categories · {totalProblems} problems total
         </p>
       </div>
 

@@ -8,6 +8,7 @@ import { ScoreCard } from '@/components/ScoreCard'
 import { ProblemCard } from '@/components/ProblemCard'
 import { AdUnit } from '@/components/AdUnit'
 import { NewsletterSection } from '@/components/NewsletterSection'
+import { ShareButton } from '@/components/ShareButton'
 import type { Metadata } from 'next'
 
 interface Props { params: { slug: string } }
@@ -95,7 +96,7 @@ export default function ProblemPage({ params }: Props) {
                 ))}
               </div>
 
-              <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl leading-tight text-ink mb-5">
+              <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl leading-tight text-ink mb-5" style={{ textWrap: 'balance' } as React.CSSProperties}>
                 {problem.title}
               </h1>
 
@@ -105,9 +106,7 @@ export default function ProblemPage({ params }: Props) {
 
               <div className="flex flex-wrap items-center gap-3 text-xs text-muted py-4 border-t border-b border-border">
                 <span>Added {formatDate(problem.dateAdded)}</span>
-                <button className="ml-auto text-xs font-medium text-ink hover:text-forest-600 transition-colors">
-                  Share ↗
-                </button>
+                <ShareButton title={problem.title} />
               </div>
             </div>
 
