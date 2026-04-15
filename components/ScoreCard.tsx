@@ -33,7 +33,7 @@ export function ScoreBadgeRow({ badges }: { badges: ScoreBadges }) {
         const s = badgeStyle(value)
         return (
           <div key={label} className={`border p-3 text-center rounded ${s.border}`}>
-            <div className={`font-serif text-2xl font-bold leading-none mb-0.5 ${s.text}`}>{value}</div>
+            <div className={`font-serif text-2xl font-bold leading-none mb-0.5 tabular-nums ${s.text}`}>{value}</div>
             <div className="text-2xs font-semibold text-ink">{label}</div>
             <div className={`text-2xs ${s.text}`}>{s.sub}</div>
           </div>

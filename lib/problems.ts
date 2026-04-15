@@ -177,8 +177,13 @@ export function getRecentProblems(limit = 6): ProblemMeta[] {
 }
 
 export function getFeaturedProblem(): ProblemMeta | null {
-  const all = readAllFiles()
-  return all.find(p => p.featured) ?? getTopProblems(1)[0] ?? null
+  const recent3 = getAllProblems().slice(0, 3)
+  if (recent3.length === 0) return null
+  return recent3.reduce((best, p) => {
+    const bestScore = best.scoreCard?.overall ?? 0
+    const pScore = p.scoreCard?.overall ?? 0
+    return pScore > bestScore ? p : best
+  })
 }
 
 export function getProblemsByCategory(category: string): ProblemMeta[] {
