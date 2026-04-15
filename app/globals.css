@@ -54,6 +54,24 @@
   color: #1A1A1A;
 }
 
+.problem-prose h2 {
+  font-family: Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  color: #1A1A1A;
+}
+
+.problem-prose h3 {
+  font-family: Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #1A1A1A;
+}
+
 /* Ticker */
 @keyframes ticker {
   0%   { transform: translateX(0); }

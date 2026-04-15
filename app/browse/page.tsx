@@ -81,7 +81,7 @@ export default function BrowsePage({
 
             {/* Category filter */}
             <a href={filterUrl({ category: 'all' })}
-              className={`text-xs px-3 py-1.5 border transition-colors ${
+              className={`text-xs px-3 py-1.5 border transition-colors rounded-sm ${
                 category === 'all'
                   ? 'bg-forest-600 text-cream border-forest-600'
                   : 'bg-white text-muted border-border hover:border-forest-400 hover:text-ink'
@@ -114,7 +114,7 @@ export default function BrowsePage({
               <a href="/browse" className="text-sm text-forest-600 hover:underline">Clear filters</a>
             </div>
           ) : (
-            <div className="border border-border bg-white overflow-hidden">
+            <div className="border border-border bg-white overflow-hidden rounded">
               {problems.map((p, i) => (
                 <div key={p.slug}>
                   <ProblemListRow problem={p} />

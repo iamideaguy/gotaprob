@@ -114,8 +114,14 @@ export function getProblemBySlug(slug: string): Problem | null {
     questionsToAsk:  data.questionsToAsk  ?? [],
     content: content
       .split(/\n\n+/)
-      .filter(p => p.trim())
-      .map(p => `<p>${p.trim().replace(/\n/g, ' ')}</p>`)
+      .filter(block => block.trim())
+      .map(block => {
+        const t = block.trim()
+        if (t.startsWith('### ')) return `<h3>${t.slice(4)}</h3>`
+        if (t.startsWith('## '))  return `<h2>${t.slice(3)}</h2>`
+        if (t.startsWith('# '))   return `<h2>${t.slice(2)}</h2>`
+        return `<p>${t.replace(/\n/g, ' ')}</p>`
+      })
       .join('\n'),
   }
 }

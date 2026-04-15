@@ -108,17 +108,17 @@ export function ProblemListRow({ problem }: { problem: ProblemMeta }) {
   return (
     <Link
       href={`/problems/${problem.slug}`}
-      className="group flex items-start justify-between gap-6 py-5 border-b border-border hover:bg-cream-100 -mx-6 px-6 transition-colors"
+      className="group flex items-center justify-between gap-4 py-4 px-5 border-b border-border hover:bg-cream-100 transition-colors"
     >
-      <div className="flex flex-1 flex-col gap-1.5 md:flex-row md:items-center md:gap-6">
-        <span className="shrink-0 w-28 text-2xs font-semibold uppercase tracking-wider text-forest-600">
+      <div className="flex flex-1 min-w-0 flex-col gap-1 sm:flex-row sm:items-center sm:gap-4">
+        <span className="shrink-0 text-2xs font-semibold uppercase tracking-wider text-forest-600 sm:w-24">
           {problem.categories[0]}
         </span>
-        <h3 className="flex-1 font-medium text-ink group-hover:underline group-hover:underline-offset-2">
+        <h3 className="flex-1 min-w-0 font-medium text-ink group-hover:underline group-hover:underline-offset-2 truncate sm:whitespace-normal">
           {problem.title}
         </h3>
       </div>
-      <div className="flex shrink-0 items-center gap-3">
+      <div className="flex shrink-0 items-center gap-2 sm:gap-3">
         <HeatBadge heat={problem.heat} />
         {problem.scoreCard && (
           <span className={`text-sm font-bold ${scoreColor(problem.scoreCard.overall)}`}>

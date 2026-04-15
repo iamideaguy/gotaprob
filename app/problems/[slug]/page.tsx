@@ -275,6 +275,7 @@ export default function ProblemPage({ params }: Props) {
               <h3 className="font-serif text-xl mb-2">One problem,<br />every Tuesday.</h3>
               <p className="text-sm text-cream-200 leading-relaxed mb-4">New problems straight to your inbox. Free forever.</p>
               <form action="https://app.beehiiv.com/subscribe" method="post" target="_blank" className="flex flex-col gap-2">
+                <input type="hidden" name="publication_id" value="cabb5be0-c7be-46f1-8c0d-ea79eb27f1c2" />
                 <input type="email" name="email" placeholder="your@email.com" required
                   className="w-full bg-forest-500 border border-forest-400 rounded px-3 py-2.5 text-sm text-cream placeholder-cream-200/50 outline-none focus:border-cream-200" />
                 <button type="submit" className="w-full bg-cream text-forest-600 rounded py-2.5 text-sm font-semibold hover:bg-cream-200 transition-colors">

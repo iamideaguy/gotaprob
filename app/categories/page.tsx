@@ -29,9 +29,9 @@ export default function CategoriesPage() {
               <Link
                 key={name}
                 href={`/categories/${name.toLowerCase().replace(/ /g, '-')}`}
-                className="group flex items-start gap-4 border border-border bg-white p-5 hover:bg-cream-100 hover:border-forest-200 transition-all"
+                className="group flex items-start gap-4 border border-border bg-white p-5 hover:bg-cream-100 hover:border-forest-200 transition-all rounded"
               >
-                <div className="w-10 h-10 bg-forest-50 border border-forest-100 flex items-center justify-center text-xl flex-shrink-0">
+                <div className="w-10 h-10 bg-forest-50 border border-forest-100 flex items-center justify-center text-xl flex-shrink-0 rounded-sm">
                   {CATEGORY_EMOJI[name] ?? '📌'}
                 </div>
                 <div>
@@ -63,7 +63,7 @@ export default function CategoriesPage() {
                       <Link
                         key={sub}
                         href={count > 0 ? href : '#'}
-                        className={`flex items-center justify-between border px-3 py-2.5 text-sm transition-colors ${
+                        className={`flex items-center justify-between border px-3 py-2.5 text-sm transition-colors rounded-sm ${
                           count > 0
                             ? 'border-border bg-white text-ink hover:bg-cream-100 hover:border-forest-200 hover:text-forest-600'
                             : 'border-border/50 bg-cream text-muted cursor-default'
