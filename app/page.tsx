@@ -106,7 +106,7 @@ export default function HomePage() {
           </div>
 
           {/* Sidebar */}
-          <aside className="lg:sticky lg:top-24 lg:self-start">
+          <aside className="lg:sticky lg:top-24 lg:self-start lg:pt-8">
             <Sidebar />
           </aside>
         </div>

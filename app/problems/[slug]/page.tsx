@@ -165,9 +165,6 @@ export default function ProblemPage({ params }: Props) {
               </div>
             )}
 
-            {/* In-article ad */}
-            <AdUnit size="infeed" slot={process.env.NEXT_PUBLIC_AD_SLOT_ARTICLE} className="w-full mb-8" />
-
             {/* Who has it */}
             {problem.whoHasIt.length > 0 && (
               <div className="mb-8">
@@ -197,6 +194,9 @@ export default function ProblemPage({ params }: Props) {
                 </div>
               </div>
             )}
+
+            {/* Mid-article ad */}
+            <AdUnit size="infeed" slot={process.env.NEXT_PUBLIC_AD_SLOT_ARTICLE} className="w-full mb-8" />
 
             {/* Research links */}
             {problem.researchLinks.length > 0 && (
@@ -273,14 +273,14 @@ export default function ProblemPage({ params }: Props) {
               <p className="text-2xs font-medium uppercase tracking-widest text-cream-200 mb-2">Weekly digest</p>
               <h3 className="font-serif text-xl mb-2">One problem,<br />every Tuesday.</h3>
               <p className="text-sm text-cream-200 leading-relaxed mb-4">New problems straight to your inbox. Free forever.</p>
-              <form action="https://app.beehiiv.com/subscribe" method="post" target="_blank" className="flex flex-col gap-2">
-                <input type="hidden" name="publication_id" value="cabb5be0-c7be-46f1-8c0d-ea79eb27f1c2" />
-                <input type="email" name="email" placeholder="your@email.com" required
-                  className="w-full bg-forest-500 border border-forest-400 rounded px-3 py-2.5 text-sm text-cream placeholder-cream-200/50 outline-none focus:border-cream-200" />
-                <button type="submit" className="w-full bg-cream text-forest-600 rounded py-2.5 text-sm font-semibold hover:bg-cream-200 transition-colors">
-                  Subscribe free
-                </button>
-              </form>
+              <a
+                href="https://gotaprob.beehiiv.com/subscribe"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full bg-cream text-forest-600 rounded py-2.5 text-sm font-semibold hover:bg-cream-200 transition-colors text-center"
+              >
+                Subscribe free →
+              </a>
             </div>
 
             {/* Second ad */}

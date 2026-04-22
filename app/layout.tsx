@@ -13,7 +13,12 @@ export const metadata: Metadata = {
   },
   description: 'A curated collection of real problems from every corner of life. We surface the itch — your job is to scratch it.',
   keywords: ['problems', 'startup ideas', 'entrepreneurship', 'market gaps', 'opportunities'],
-  openGraph: { type: 'website', siteName: 'gotaprob' },
+  openGraph: {
+    type: 'website',
+    siteName: 'gotaprob',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630 }],
+  },
+  twitter: { card: 'summary_large_image' },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
