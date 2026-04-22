@@ -75,7 +75,7 @@ export function RadarOrb() {
 
       <style>{`
         .radar-sweep {
-          animation: radar-spin 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+          animation: radar-spin 4s linear infinite;
           transform-origin: center;
         }
         @keyframes radar-spin {

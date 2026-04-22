@@ -10,6 +10,7 @@ const LINKS = {
   Company: [
     { name: 'About', href: '/about' },
     { name: 'Submit a Problem', href: '/submit' },
+    { name: 'FAQ', href: '/faq' },
     { name: 'Contact', href: '/contact' },
   ],
   Legal: [

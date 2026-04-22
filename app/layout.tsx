@@ -3,6 +3,7 @@ import Script from 'next/script'
 import './globals.css'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import { AdUnit } from '@/components/AdUnit'
 import { getProblemCount } from '@/lib/problems'
 
 export const metadata: Metadata = {
@@ -37,6 +38,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           gtag('js', new Date());
           gtag('config', 'G-ZMY1MLRXMH');
         `}</Script>
+        <div className="border-b border-border bg-cream flex justify-center py-2">
+          <AdUnit size="leaderboard" slot={process.env.NEXT_PUBLIC_AD_SLOT_TOP_BANNER} />
+        </div>
         <Header problemCount={count} />
         <main>{children}</main>
         <Footer />

@@ -12,9 +12,6 @@ export function Sidebar() {
   return (
     <div className="flex flex-col gap-8">
 
-      {/* Ad */}
-      <AdUnit size="rectangle" slot={process.env.NEXT_PUBLIC_AD_SLOT_SIDEBAR_1} />
-
       {/* Top scored */}
       <div className="border border-border bg-white p-5 rounded">
         <div className="flex items-center justify-between mb-4">
@@ -28,6 +25,9 @@ export function Sidebar() {
         </div>
       </div>
 
+      {/* Ad */}
+      <AdUnit size="rectangle" slot={process.env.NEXT_PUBLIC_AD_SLOT_SIDEBAR_1} />
+
       {/* Newsletter */}
       <div className="border border-border bg-forest-600 p-5 text-cream rounded">
         <p className="text-2xs font-medium uppercase tracking-widest text-cream-200 mb-2">Stay curious</p>
@@ -35,22 +35,14 @@ export function Sidebar() {
         <p className="text-sm text-cream-200 leading-relaxed mb-4">
           The most interesting problem of the week, straight to your inbox.
         </p>
-        <form action="https://app.beehiiv.com/subscribe" method="post" target="_blank" className="flex flex-col gap-2">
-          <input type="hidden" name="publication_id" value="cabb5be0-c7be-46f1-8c0d-ea79eb27f1c2" />
-          <input
-            type="email"
-            name="email"
-            placeholder="your@email.com"
-            required
-            className="w-full bg-forest-500 border border-forest-400 rounded px-3 py-2.5 text-sm text-cream placeholder-cream-200/50 outline-none focus:border-cream-200"
-          />
-          <button
-            type="submit"
-            className="w-full bg-cream text-forest-600 rounded py-2.5 text-sm font-semibold hover:bg-cream-200 transition-colors"
-          >
-            Subscribe free
-          </button>
-        </form>
+        <a
+          href="https://gotaprob.beehiiv.com/subscribe"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block w-full bg-cream text-forest-600 rounded py-2.5 text-sm font-semibold hover:bg-cream-200 transition-colors text-center"
+        >
+          Subscribe free →
+        </a>
         <p className="text-2xs text-cream-200/60 mt-2">No spam. Unsubscribe anytime.</p>
       </div>
 
