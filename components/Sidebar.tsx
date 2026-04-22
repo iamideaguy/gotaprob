@@ -3,6 +3,7 @@ import { ArrowUpRight } from 'lucide-react'
 import { getTopProblems, getRecentProblems, getAllCategories, CATEGORY_EMOJI } from '@/lib/problems'
 import { AdUnit } from './AdUnit'
 import { ProblemRow } from './ProblemCard'
+import { SidebarNewsletter } from './SidebarNewsletter'
 
 export function Sidebar() {
   const top = getTopProblems(5)
@@ -28,23 +29,7 @@ export function Sidebar() {
       {/* Ad */}
       <AdUnit size="rectangle" slot={process.env.NEXT_PUBLIC_AD_SLOT_SIDEBAR_1} />
 
-      {/* Newsletter */}
-      <div className="border border-border bg-forest-600 p-5 text-cream rounded">
-        <p className="text-2xs font-medium uppercase tracking-widest text-cream-200 mb-2">Stay curious</p>
-        <h3 className="font-serif text-xl mb-2">One problem,<br />every Tuesday.</h3>
-        <p className="text-sm text-cream-200 leading-relaxed mb-4">
-          The most interesting problem of the week, straight to your inbox.
-        </p>
-        <a
-          href="https://gotaprob.beehiiv.com/subscribe"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block w-full bg-cream text-forest-600 rounded py-2.5 text-sm font-semibold hover:bg-cream-200 transition-colors text-center"
-        >
-          Subscribe free →
-        </a>
-        <p className="text-2xs text-cream-200/60 mt-2">No spam. Unsubscribe anytime.</p>
-      </div>
+      <SidebarNewsletter />
 
       {/* Most recent */}
       <div className="border border-border bg-white p-5 rounded">

@@ -64,7 +64,7 @@ export default function HomePage() {
             {/* Featured */}
             {featured && (
               <div className="mb-10">
-                <p className="mb-4 text-2xs font-medium uppercase tracking-widest text-muted">
+                <p className="mb-4 text-xs font-bold uppercase tracking-widest text-ink/70">
                   Problem of the week
                 </p>
                 <FeaturedCard problem={featured} />

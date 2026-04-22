@@ -4,21 +4,21 @@ import { useState } from 'react'
 
 export function BeehiivForm() {
   const [email, setEmail] = useState('')
-  const [submitted, setSubmitted] = useState(false)
+  const [state, setState] = useState<'idle' | 'loading' | 'done' | 'error'>('idle')
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    const url = `https://gotaprob.beehiiv.com/subscribe?email=${encodeURIComponent(email)}`
-    window.open(url, '_blank', 'noopener,noreferrer')
-    setSubmitted(true)
+    setState('loading')
+    const res = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    })
+    setState(res.ok ? 'done' : 'error')
   }
 
-  if (submitted) {
-    return (
-      <p className="text-cream-200 text-sm py-4">
-        Check the new tab to confirm your subscription.
-      </p>
-    )
+  if (state === 'done') {
+    return <p className="text-cream-200 text-sm py-3">You are subscribed. See you next Tuesday.</p>
   }
 
   return (
@@ -29,14 +29,17 @@ export function BeehiivForm() {
         onChange={e => setEmail(e.target.value)}
         placeholder="your@email.com"
         required
-        className="flex-1 bg-forest-500 border border-forest-400 rounded px-4 py-3 text-sm text-cream placeholder-cream-200/50 outline-none focus:border-cream-200"
+        disabled={state === 'loading'}
+        className="flex-1 bg-forest-500 border border-forest-400 rounded px-4 py-3 text-sm text-cream placeholder-cream-200/50 outline-none focus:border-cream-200 disabled:opacity-60"
       />
       <button
         type="submit"
-        className="bg-cream text-forest-600 rounded px-6 py-3 text-sm font-semibold hover:bg-cream-200 transition-colors whitespace-nowrap"
+        disabled={state === 'loading'}
+        className="bg-cream text-forest-600 rounded px-6 py-3 text-sm font-semibold hover:bg-cream-200 transition-colors whitespace-nowrap disabled:opacity-60"
       >
-        Subscribe free
+        {state === 'loading' ? 'Subscribing...' : 'Subscribe free'}
       </button>
+      {state === 'error' && <p className="text-red-300 text-xs mt-1 sm:col-span-2">Something went wrong. Try again.</p>}
     </form>
   )
 }

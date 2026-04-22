@@ -10,25 +10,40 @@ export default function OGImage() {
     (
       <div
         style={{
-          background: '#1F521F',
+          background: '#FAF7F0',
           width: '100%',
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
+          justifyContent: 'space-between',
           fontFamily: 'Georgia, serif',
-          padding: '80px',
+          padding: '72px 80px',
+          borderTop: '6px solid #1F521F',
         }}
       >
-        <div style={{ color: 'rgba(250,247,240,0.5)', fontSize: 16, letterSpacing: 6, textTransform: 'uppercase', marginBottom: 32 }}>
-          A CURATED COLLECTION · FREE FOREVER
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          <div style={{ color: '#1a1a18', fontSize: 22, fontWeight: 700, fontStyle: 'italic' }}>gotaprob</div>
         </div>
-        <div style={{ color: '#FAF7F0', fontSize: 80, fontWeight: 700, lineHeight: 1.1, textAlign: 'center', marginBottom: 32 }}>
-          gotaprob
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+          <div style={{ color: '#1a1a18', fontSize: 72, fontWeight: 700, lineHeight: 1.1 }}>
+            Real problems,
+          </div>
+          <div style={{ color: '#1a1a18', fontSize: 72, fontStyle: 'italic', fontWeight: 700, lineHeight: 1.1 }}>
+            worth solving.
+          </div>
+          <div style={{ color: '#6b7280', fontSize: 26, marginTop: 16, lineHeight: 1.5, maxWidth: 700 }}>
+            A curated collection of problems from everyday life. Scored, researched, and ready to explore.
+          </div>
         </div>
-        <div style={{ color: 'rgba(250,247,240,0.7)', fontSize: 28, textAlign: 'center', maxWidth: 700, lineHeight: 1.5 }}>
-          Real problems worth solving
+
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div style={{ color: '#9ca3af', fontSize: 16, letterSpacing: 3, textTransform: 'uppercase' }}>
+            gotaprob.com
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, background: '#1F521F', borderRadius: 6, padding: '10px 20px' }}>
+            <div style={{ color: '#FAF7F0', fontSize: 14, letterSpacing: 2, textTransform: 'uppercase' }}>Free forever</div>
+          </div>
         </div>
       </div>
     ),

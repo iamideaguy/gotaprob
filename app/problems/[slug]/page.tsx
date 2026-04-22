@@ -9,6 +9,7 @@ import { ProblemCard } from '@/components/ProblemCard'
 import { AdUnit } from '@/components/AdUnit'
 import { NewsletterSection } from '@/components/NewsletterSection'
 import { ShareButton } from '@/components/ShareButton'
+import { SidebarNewsletter } from '@/components/SidebarNewsletter'
 import type { Metadata } from 'next'
 
 interface Props { params: { slug: string } }
@@ -268,20 +269,7 @@ export default function ProblemPage({ params }: Props) {
             {/* Sidebar ad */}
             <AdUnit size="rectangle" slot={process.env.NEXT_PUBLIC_AD_SLOT_SIDEBAR_1} />
 
-            {/* Newsletter */}
-            <div className="border border-border bg-forest-600 rounded p-5 text-cream">
-              <p className="text-2xs font-medium uppercase tracking-widest text-cream-200 mb-2">Weekly digest</p>
-              <h3 className="font-serif text-xl mb-2">One problem,<br />every Tuesday.</h3>
-              <p className="text-sm text-cream-200 leading-relaxed mb-4">New problems straight to your inbox. Free forever.</p>
-              <a
-                href="https://gotaprob.beehiiv.com/subscribe"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full bg-cream text-forest-600 rounded py-2.5 text-sm font-semibold hover:bg-cream-200 transition-colors text-center"
-              >
-                Subscribe free →
-              </a>
-            </div>
+            <SidebarNewsletter />
 
             {/* Second ad */}
             <AdUnit size="halfpage" slot={process.env.NEXT_PUBLIC_AD_SLOT_SIDEBAR_2} />
