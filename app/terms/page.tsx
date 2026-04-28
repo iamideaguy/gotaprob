@@ -20,9 +20,16 @@ export default function TermsPage() {
         </section>
 
         <section>
+          <h2 className="font-serif text-xl mb-3">Our research</h2>
+          <p className="text-muted">
+            gotaprob researches and curates real-world problems based on publicly available signals such as forum posts, reviews, and community discussions. We do our best to ensure accuracy, but we do not guarantee that any problem represents a viable business opportunity, that the market conditions described are current, or that any information is free from error. Our research is a starting point, not a conclusion.
+          </p>
+        </section>
+
+        <section>
           <h2 className="font-serif text-xl mb-3">No business advice</h2>
           <p className="text-muted">
-            Nothing on gotaprob constitutes business, legal, or financial advice. We surface problems worth investigating — not validated business opportunities. Any decisions you make based on content from this site are your own responsibility.
+            Nothing on gotaprob constitutes business, legal, or financial advice. We surface problems worth investigating, not validated business opportunities or investment recommendations. Any decisions you make based on content from this site are entirely your own responsibility. gotaprob is not liable for any outcome resulting from acting on information presented here.
           </p>
         </section>
 

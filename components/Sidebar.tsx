@@ -1,13 +1,13 @@
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
-import { getTopProblems, getRecentProblems, getAllCategories, CATEGORY_EMOJI } from '@/lib/problems'
+import { getTopProblems, getBurningProblems, getAllCategories, CATEGORY_EMOJI } from '@/lib/problems'
 import { AdUnit } from './AdUnit'
 import { ProblemRow } from './ProblemCard'
 import { SidebarNewsletter } from './SidebarNewsletter'
 
 export function Sidebar() {
   const top = getTopProblems(5)
-  const recent = getRecentProblems(4)
+  const burning = getBurningProblems(5)
   const categories = getAllCategories().slice(0, 8)
 
   return (
@@ -31,16 +31,19 @@ export function Sidebar() {
 
       <SidebarNewsletter />
 
-      {/* Most recent */}
+      {/* Burning */}
       <div className="border border-border bg-white p-5 rounded">
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-2xs font-semibold uppercase tracking-widest text-muted">Most Recent</h3>
-          <Link href="/browse?sort=recent" className="inline-flex items-center gap-0.5 text-xs text-forest-600 hover:underline">
+          <h3 className="text-2xs font-semibold uppercase tracking-widest text-muted">🔥 Burning</h3>
+          <Link href="/browse?heat=burning" className="inline-flex items-center gap-0.5 text-xs text-forest-600 hover:underline">
             See all <ArrowUpRight className="h-3 w-3" />
           </Link>
         </div>
         <div>
-          {recent.map((p, i) => <ProblemRow key={p.slug} problem={p} index={i} />)}
+          {burning.length > 0
+            ? burning.map((p, i) => <ProblemRow key={p.slug} problem={p} index={i} />)
+            : <p className="text-xs text-muted">No burning problems yet.</p>
+          }
         </div>
       </div>
 

@@ -14,10 +14,10 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const featured  = getFeaturedProblem()
-  const recent    = getRecentProblems(6)
+  const recent    = getRecentProblems(21)
   const cats      = getAllCategories()
 
-  const feedProblems = recent.filter(p => p.slug !== featured?.slug).slice(0, 4)
+  const feedProblems = recent.filter(p => p.slug !== featured?.slug).slice(0, 20)
 
   return (
     <>

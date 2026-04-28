@@ -29,7 +29,7 @@ export function Footer() {
               gotaprob
             </Link>
             <p className="mt-3 text-sm leading-relaxed text-muted">
-              Surfacing real problems from everyday life. Not to hand you a business plan — to spark curiosity.
+              Surfacing real problems from everyday life. Not to hand you a business plan, but to spark curiosity.
             </p>
           </div>
           {Object.entries(LINKS).map(([section, links]) => (

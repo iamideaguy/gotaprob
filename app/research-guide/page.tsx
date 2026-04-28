@@ -156,7 +156,7 @@ export default function ResearchGuidePage() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {Object.entries(CATEGORY_TREE).map(([world, domains]) => (
-            <div key={world} className="border border-border bg-white p-5">
+            <div key={world} className="border border-border bg-white p-5 rounded">
               <div className="flex items-center gap-2 mb-4">
                 <span className="text-lg">{world === 'Physical World' ? '🌍' : '💻'}</span>
                 <h3 className="font-semibold text-ink">{world}</h3>
@@ -183,7 +183,7 @@ export default function ResearchGuidePage() {
         </p>
         <div className="flex flex-col gap-4">
           {RESEARCH_SOURCES.map((source) => (
-            <div key={source.name} className={`border p-5 ${source.color}`}>
+            <div key={source.name} className={`border p-5 rounded ${source.color}`}>
               <div className="flex items-center gap-3 mb-3">
                 <h3 className="font-semibold text-ink">{source.name}</h3>
                 <span className={`text-2xs font-semibold uppercase tracking-wider px-2 py-0.5 ${source.labelColor}`}>
@@ -212,7 +212,7 @@ export default function ResearchGuidePage() {
         </p>
         <div className="flex flex-col gap-4">
           {VALIDATION_GATES.map((g) => (
-            <div key={g.gate} className="border border-border bg-white p-5">
+            <div key={g.gate} className="border border-border bg-white p-5 rounded">
               <div className="flex items-center gap-3 mb-3">
                 <span className="text-2xs font-bold uppercase tracking-widest text-muted bg-cream px-2 py-1 border border-border">
                   {g.gate}
@@ -256,7 +256,7 @@ export default function ResearchGuidePage() {
           We set these manually based on our research — no algorithms, no APIs, no data that goes stale.
           The scores are our honest editorial judgment.
         </p>
-        <div className="border border-border bg-white divide-y divide-border">
+        <div className="border border-border bg-white divide-y divide-border rounded overflow-hidden">
           {SCORE_GUIDE.map((item, i) => (
             <div key={i} className="p-4 grid grid-cols-1 md:grid-cols-[200px_1fr] gap-3">
               <div>
@@ -264,11 +264,11 @@ export default function ResearchGuidePage() {
                 <p className="text-2xs text-muted mt-0.5 italic">{item.q}</p>
               </div>
               <div className="grid grid-cols-2 gap-3">
-                <div className="bg-red-50 border border-red-100 p-2.5">
+                <div className="bg-red-50 border border-red-100 p-2.5 rounded">
                   <p className="text-2xs font-semibold text-red-700 mb-1">Score: 1–4</p>
                   <p className="text-xs text-red-800">{item.low}</p>
                 </div>
-                <div className="bg-forest-50 border border-forest-100 p-2.5">
+                <div className="bg-forest-50 border border-forest-100 p-2.5 rounded">
                   <p className="text-2xs font-semibold text-forest-700 mb-1">Score: 7–10</p>
                   <p className="text-xs text-forest-800">{item.high}</p>
                 </div>
@@ -289,7 +289,7 @@ export default function ResearchGuidePage() {
           Use the MDX template. The goal is to make the reader <em>feel</em> the problem — 
           not hand them a business plan.
         </p>
-        <div className="border border-border bg-cream-200 p-5">
+        <div className="border border-border bg-cream-200 p-5 rounded">
           <p className="text-2xs font-semibold uppercase tracking-widest text-muted mb-3">Writing rules</p>
           <ul className="flex flex-col gap-2">
             {[
@@ -311,7 +311,7 @@ export default function ResearchGuidePage() {
       </section>
 
       {/* CTA */}
-      <div className="border border-forest-200 bg-forest-50 p-6 text-center">
+      <div className="border border-forest-200 bg-forest-50 p-6 text-center rounded">
         <p className="font-serif text-xl text-ink mb-2">Ready to submit a problem?</p>
         <p className="text-sm text-muted mb-4">
           Found something that passes all four gates? We'd love to feature it.

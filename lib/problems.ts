@@ -176,6 +176,10 @@ export function getRecentProblems(limit = 6): ProblemMeta[] {
   return getAllProblems().slice(0, limit)
 }
 
+export function getBurningProblems(limit = 5): ProblemMeta[] {
+  return getAllProblems().filter(p => p.heat === 'burning').slice(0, limit)
+}
+
 export function getFeaturedProblem(): ProblemMeta | null {
   const recent3 = getAllProblems().slice(0, 3)
   if (recent3.length === 0) return null
