@@ -15,14 +15,14 @@ export default function PrivacyPage() {
         <section>
           <h2 className="font-serif text-xl mb-3">What we collect</h2>
           <p className="text-muted">
-            gotaprob does not require account registration. If you subscribe to our newsletter, we collect your email address via Beehiiv. If you contact us, we receive the information you choose to share. We use Google Analytics to understand aggregate site traffic — this uses cookies and collects anonymised usage data.
+            gotaprob does not require account registration. If you subscribe to our newsletter, we collect your email address, which is stored and processed by Beehiiv in accordance with their privacy policy. If you contact us, we receive the information you choose to share. We use Google Analytics to understand aggregate site traffic and Google Search Console to monitor search performance. Both use cookies and collect anonymised usage data.
           </p>
         </section>
 
         <section>
           <h2 className="font-serif text-xl mb-3">How we use it</h2>
           <p className="text-muted">
-            Email addresses collected via newsletter signup are used solely to send the gotaprob digest. We do not sell or share your personal data with third parties, except as required by the services we use (Beehiiv for email, Google for analytics and advertising).
+            Email addresses collected via newsletter signup are stored with Beehiiv and used solely to send the gotaprob weekly digest. We do not sell or share your personal data with third parties, except as required by the services we use: Beehiiv for email delivery, Google Analytics and Google Search Console for site performance monitoring, and Google AdSense for advertising.
           </p>
         </section>
 

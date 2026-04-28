@@ -17,6 +17,10 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
     a: 'Each problem is scored out of 100 based on four dimensions: pain level (how much people suffer), opportunity size (how many people have it), feasibility (how hard it is to solve), and timing (whether the moment is right). The overall score combines these into a single signal.',
   },
   {
+    q: 'What do the heat labels mean?',
+    a: '🔥 Burning means the problem is urgent, widespread, and actively discussed right now. ⚡ Warm means it is real and growing but not yet at a peak. 🌿 Fresh means it is an emerging problem we are watching early. Heat is our editorial judgment based on the volume and intensity of signals we find.',
+  },
+  {
     q: 'Is this a list of startup ideas?',
     a: 'Not exactly. We surface the problem, not the solution. What you do with it, whether you build a product, write about it, or just stay curious, is up to you. We deliberately avoid prescribing solutions.',
   },

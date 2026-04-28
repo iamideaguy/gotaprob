@@ -14,7 +14,7 @@ export default function ContactPage() {
       </p>
       <a
         href="mailto:iamideaguy@gmail.com"
-        className="inline-block bg-forest-600 text-cream px-6 py-3 text-sm font-medium hover:bg-forest-500 transition-colors"
+        className="inline-block bg-forest-600 text-cream px-6 py-3 text-sm font-medium hover:bg-forest-500 transition-colors rounded"
       >
         iamideaguy@gmail.com
       </a>
